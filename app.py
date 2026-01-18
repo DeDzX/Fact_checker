@@ -9,8 +9,9 @@ from tavily import TavilyClient
 # Load environment variables
 load_dotenv()
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+OPENROUTER_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+TAVILY_API_KEY = st.secrets["TAVILY_API_KEY"]
+
 
 # OpenRouter API config
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
@@ -152,3 +153,4 @@ if st.session_state.results:
         with st.expander(f"Claim {i}"):
             st.markdown(f"**Claim:** {claim}")
             st.markdown(f"**Verdict:** {verdict}")
+
