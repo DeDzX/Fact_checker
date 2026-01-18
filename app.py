@@ -5,11 +5,12 @@ import requests
 from dotenv import load_dotenv
 from tavily import TavilyClient
 
-# Load environment variables
+# Load environment variables (still fine for local use)
 load_dotenv()
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
+# Use Streamlit secrets for deployment
+OPENROUTER_API_KEY = st.secrets.get("OPENROUTER_API_KEY")
+TAVILY_API_KEY = st.secrets.get("TAVILY_API_KEY")
 
 # OpenRouter API config
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
@@ -37,6 +38,7 @@ uploaded_file = st.file_uploader("Upload PDF", type="pdf")
 # Session state
 if "claims" not in st.session_state:
     st.session_state.claims = ""
+
 if "results" not in st.session_state:
     st.session_state.results = []
 
@@ -129,6 +131,8 @@ if st.session_state.results:
     for claim, verdict in st.session_state.results:
         with st.expander(f"Claim: {claim[:100]}..."):
             st.markdown(f"**Verdict:**\n\n{verdict}")
+
+
 
 
 
