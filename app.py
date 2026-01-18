@@ -30,7 +30,7 @@ tavily = TavilyClient(api_key=TAVILY_API_KEY)
 
 # Streamlit UI
 st.set_page_config(page_title="Fact Checker AI", layout="wide")
-st.title("🕵️ Fact-Checking Web App")
+st.title("Fact-Checking Web App")
 st.write(f"Verifying claims using **Meta Llama 3** + **Live Web Search**")
 
 uploaded_file = st.file_uploader("Upload PDF", type="pdf")
@@ -131,6 +131,7 @@ if st.session_state.results:
     for claim, verdict in st.session_state.results:
         with st.expander(f"Claim: {claim[:100]}..."):
             st.markdown(f"**Verdict:**\n\n{verdict}")
+
 
 
 
