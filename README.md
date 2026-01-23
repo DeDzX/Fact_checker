@@ -1,4 +1,4 @@
-# Fact Checking System
+# Fact Verifying System
 
 ## Project Overview
 
@@ -123,3 +123,4 @@ Each claim is shown with a short explanation of whether it is verified or not.
 This project demonstrates how AI and web search can be used together to analyse factual information in documents. It provides a practical example of building a simple fact checking tool with real-world applications in research, journalism, and education.
 
 ---
+
